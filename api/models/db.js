@@ -1,7 +1,7 @@
 let mgs=require('mongoose');
-mgs.connect(cfg.dbPath);
+mgs.connect(process.env.dbPath);
 mgs.connection.on('connected', ()=>{
-	debug('mongoose connected to: '+cfg.dbPath);
+	debug('mongoose connected to: '+process.env.dbPath);
 });
 
 mgs.connection.on('connected', (err)=>{
