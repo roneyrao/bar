@@ -5,12 +5,19 @@ const mgs=require('mongoose')
 
 function sendJSON(res, status, ctn){
 	res.status(status);
-	res.json(status);
+	res.json(ctn);
 }
 
 module.exports={
-	listByDistance(req, res){
-		loc.find(function(err, rs){});
+	list(req, res){
+		loc.find(function(err, rs){
+			if(err){
+				debug('loc.find error:', err);
+				sendJSON(res, 404, err);
+			}else{
+				sendJSON(res, 200, rs.obj);
+			}
+		});
 	}
 	,create(){
 	}

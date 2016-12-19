@@ -2,7 +2,7 @@ const router =require('express').Router()
 ,ctrlLoc=require('../ctrls/loc')
 ,ctrlRv=require('../ctrls/rv');
 
-router.get('loc', ctrlLoc.listByDistance);
+router.get('loc', ctrlLoc.list);
 router.post('loc', ctrlLoc.create);
 router.get('loc/:locId', ctrlLoc.single);
 router.put('loc/:locId', ctrlLoc.update);
