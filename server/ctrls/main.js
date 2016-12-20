@@ -2,7 +2,7 @@ const rq=require('request');
 module.exports={
 	index:function(req, res, next) { //eslint-disable-line no-unused-vars
 		rq({
-			url:req.headers.host+'/api/loc'
+			url:req.protocol+'://'+req.headers.host+'/api/loc'
 			,method:'get'
 			,json:{}
 		},function(err, resp, body){

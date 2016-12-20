@@ -9,6 +9,7 @@ var debug = require('debug')('bar');
 
 var index = require('./server/routes/index');
 var review = require('./server/routes/review');
+var api = require('./api/routes');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/review', review);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

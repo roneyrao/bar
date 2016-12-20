@@ -46,6 +46,6 @@ const lc=new mgs.Schema({
 	}
 	,openingTimes:[oTime]
 	,reviews:[rv]
-});
+}, {collection:'locations'});
 
 mgs.model('Location', lc);

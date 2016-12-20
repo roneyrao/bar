@@ -4,7 +4,7 @@ mgs.connection.on('connected', ()=>{
 	debug('mongoose connected to: '+process.env.dbPath);
 });
 
-mgs.connection.on('connected', (err)=>{
+mgs.connection.on('error', (err)=>{
 	debug('mongoose connect error: '+err);
 });
 mgs.connection.on('disconnected', ()=>{
@@ -29,4 +29,4 @@ process.once('SIGINT', ()=>{
 	});
 });
 
-require('locs');
+require('./locs');

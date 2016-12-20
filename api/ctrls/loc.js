@@ -15,7 +15,7 @@ module.exports={
 				debug('loc.find error:', err);
 				sendJSON(res, 404, err);
 			}else{
-				sendJSON(res, 200, rs.obj);
+				sendJSON(res, 200, rs);
 			}
 		});
 	}
