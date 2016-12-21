@@ -1,20 +1,22 @@
-const rq=require('request');
+//const rq=require('request');
+const loc=require('../../api/dal/loc');
 module.exports={
 	index:function(req, res, next) { //eslint-disable-line no-unused-vars
-		rq({
-			url:req.protocol+'://'+req.headers.host+'/api/loc'
-			,method:'get'
-			,json:{}
-		},function(err, resp, body){
+		//rq({
+		//	url:req.protocol+'://'+req.headers.host+'/api/loc'
+		//	,method:'get'
+		//	,json:{}
+		//},function(err, resp, body){
+		loc.list(function(err, rs){
 			if(err){
-				body=[];
+				rs=[];
 				debug('ctrl main '+err);
 			}
 			res.render('index', { 
 				title: 'Express' 
 				,header: 'Welcome to bar' 
 				,strapline:'straplinestrapline strapline strapline strapline strapline  strapline '
-				,locations:body
+				,locations:rs
 				,sidebar:'sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar '
 			});
 		});

@@ -1,4 +1,3 @@
-require('../models/db');
 const router =require('express').Router() 
 ,ctrlLoc=require('../ctrls/loc')
 ,ctrlRv=require('../ctrls/rv');

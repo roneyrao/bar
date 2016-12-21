@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug')('bar');
 
+require('./api/models/db');
 var index = require('./server/routes/index');
 var review = require('./server/routes/review');
 var api = require('./api/routes');
