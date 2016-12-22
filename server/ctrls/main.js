@@ -22,7 +22,19 @@ module.exports={
 		});
 	}
 	,location:function(req, res, next) { //eslint-disable-line no-unused-vars
-		res.render('location', { title: 'Express' });
+		loc.single(req.params.locId, function(err, rs){
+			if(err){
+				rs=[];
+				debug('ctrl location '+err);
+			}
+			res.render('location', { 
+				title: 'Express' 
+				,header: 'Welcome to bar' 
+				,strapline:'straplinestrapline strapline strapline strapline strapline  strapline '
+				,location:rs
+				,sidebar:'sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar '
+			});
+		});
 	}
 	,about:function(req, res, next) { //eslint-disable-line no-unused-vars
 		res.render('about', { title: 'Express' });

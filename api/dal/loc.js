@@ -14,7 +14,13 @@ module.exports={
 	}
 	,create(){
 	}
-	,single(){
+	,single(id, cb){
+		loc.findById(id, function(err, rs){
+			if(err){
+				debug('loc.findById error:', err);
+			}
+			cb(err, rs);
+		});
 	}
 	,update(){
 	}

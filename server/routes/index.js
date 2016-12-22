@@ -4,7 +4,7 @@ let ctrl=require('../ctrls/main');
 
 /* GET home page. */
 router.get('/', ctrl.index);
-router.get('/location', ctrl.location);
+router.get('/location/:locId', ctrl.location);
 router.get('/about', ctrl.about);
 
 module.exports = router;

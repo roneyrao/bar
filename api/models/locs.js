@@ -8,7 +8,7 @@ const rv=new mgs.Schema({
 		,min:0
 		,max:5
 	}
-	,ctn:String
+	,reviewText:String
 	,created:{
 		type:Date
 		,"default":Date.now
