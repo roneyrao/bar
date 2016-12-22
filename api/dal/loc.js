@@ -12,7 +12,13 @@ module.exports={
 			cb(err, rs);
 		});
 	}
-	,create(){
+	,create(obj, cb){
+		loc.create(obj, function(err, rs){
+			if(err){
+				debug('loc.create error:', err);
+			}
+			cb(err, rs);
+		});
 	}
 	,single(id, cb){
 		loc.findById(id, function(err, rs){
