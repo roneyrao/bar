@@ -37,6 +37,6 @@ module.exports={
 		});
 	}
 	,about:function(req, res, next) { //eslint-disable-line no-unused-vars
-		res.render('about', { title: 'Express' });
+		res.render('about', { title: 'Express' , locId:req.query.locId, rvId:req.query.rvId});
 	}
 };

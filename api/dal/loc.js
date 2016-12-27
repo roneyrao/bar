@@ -25,6 +25,7 @@ module.exports={
 			if(err){
 				debug('loc.findById error:', err);
 			}
+			debug('loc.findById :', rs);
 			cb(err, rs);
 		});
 	}

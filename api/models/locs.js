@@ -1,7 +1,7 @@
 const mgs=require('mongoose');
 
 const rv=new mgs.Schema({
-	auther:String
+	author:String
 	,rating:{
 		type:Number
 		,required:true

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=product node ./bin/www",
-    "debug": "DEBUG=bar nodemon debug bin/www",
-    "dev": "DEBUG=bar nodemon ./bin/www"
+    "debug": "DEBUG=bar node debug bin/www > debug.log",
+    "dev": "DEBUG=bar nodemon ./bin/www > debug.log 2>&1"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
