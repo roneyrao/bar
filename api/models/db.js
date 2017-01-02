@@ -30,3 +30,4 @@ process.once('SIGINT', ()=>{
 });
 
 require('./locs');
+require('./user');

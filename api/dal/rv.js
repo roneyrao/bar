@@ -23,6 +23,15 @@ module.exports={
 			cb(err, rs);
 		});
 	}
+	,single(locId, rvId, cb){
+		debug('single:'+locId+' '+rvId);
+		loc.findById({_id:locId}, {reviews:{$elemMatch:{_id:rvId}}}, null, function(err, rs){
+			if(err){
+				debug('review.findById error:', err);
+			}
+			cb(err, rs);
+		});
+	}
 	,remove(locId, rvId, cb){
 		debug('remove:'+locId+' '+rvId);
 		loc.update({_id:locId}, {$pull:{reviews:{id:rvId}}}, null, function(err, rs){
@@ -32,4 +41,4 @@ module.exports={
 			cb(err, rs);
 		});
 	}
-}
+};

@@ -53,6 +53,6 @@ block content
                       small.reviewTimestamp #{review.created}
                     .col-xs-12
                       p 
-                       a(href='/about?locId=#{location._id}&rvId=#{review._id}') #{review.reviewText}
+                       a(href='/review/#{location._id}/#{review._id}') #{review.reviewText}
     .col-xs-12.col-md-3
       p.lead #{location.name} #{sidebar}

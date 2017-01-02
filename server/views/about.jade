@@ -3,29 +3,3 @@ extends layout
 block content
 	h1= title
 	p Welcome to #{title}
-	button(onclick='create()') create
-	button(onclick='put()') update
-	button(onclick='remove()') delete
-	script.
-		function remove(){
-			$.ajax({
-				url:'/api/loc/#{locId}/rv/#{rvId}'
-				,method:'delete'
-			});
-		}
-		function create(){
-			$.ajax({
-				url:'/api/loc/#{locId}/rv'
-				,type:'post'
-				,dataType:'json'
-				,data:{author:'rao', reviewText:'2wordssssssssssssss', rating:5}
-			});
-		}
-		function put(){
-			$.ajax({
-				url:'/api/loc/#{locId}/rv/#{rvId}'
-				,type:'put'
-				,dataType:'json'
-				,data:{author:'wang', reviewText:'reviewwwwww'}
-			});
-		}

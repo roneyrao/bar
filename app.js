@@ -36,6 +36,9 @@ app.use('/', index);
 app.use('/review', review);
 app.use('/api', api);
 
+//app.use(function(req, res, next){//eslint-disable-line no-unused-vars
+//	res.sendFile(path.join(__dirname, 'public', 'reg.html'));
+//});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -45,13 +48,23 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {//eslint-disable-line no-unused-vars
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+	if(err.name=='unauthorized'){
+		res.status(401);
+		res.json({msg:err.name+':'+err.message});
+	}
+	next(err);
+});
+app.use(function(err, req, res, next) {//eslint-disable-line no-unused-vars
+	// render the error page
+	res.status(err.status || 500);
+	if(req.path.startsWith('/api')){
+		res.json({msg:err.message, err:err});
+	}else{
+		// set locals, only providing error in development
+		res.locals.message = err.message;
+		res.locals.error = req.app.get('env') === 'development' ? err : {};
+		res.render('error');
+	}
 });
 
 module.exports = app;

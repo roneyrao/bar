@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	p content: #{ctn}
+	div 
+		textarea#txt
+	button(onclick='create()') create
+	button(onclick='put()') update
+	button(onclick='remove()') delete
+	script.
+		function remove(){
+			$.ajax({
+				url:'/api/loc/#{locId}/rv/#{rvId}'
+				,headers:{Authorization:'Bearer '+window.localStorage.getItem('token')}
+				,method:'delete'
+			});
+		}
+		function create(){
+			$.ajax({
+				url:'/api/loc/#{locId}/rv'
+				,type:'post'
+				,dataType:'json'
+				,headers:{Authorization:'Bearer '+window.localStorage.getItem('token')}
+				,data:{reviewText:document.getElementById('txt').value, rating:5}
+			});
+		}
+		function put(){
+			$.ajax({
+				url:'/api/loc/#{locId}/rv/#{rvId}'
+				,headers:{Authorization:'Bearer '+window.localStorage.getItem('token')}
+				,type:'put'
+				,dataType:'json'
+				,data:document.getElementById('txt').value
+			});
+		}

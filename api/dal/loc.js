@@ -31,6 +31,13 @@ module.exports={
 	}
 	,update(){
 	}
-	,remove(){
+	,remove(id, cb){
+		loc.remove({_id:id}, function(err, rs){
+			if(err){
+				debug('loc.remove error:', err);
+			}
+			debug('loc.remove :', rs);
+			cb(err, rs);
+		});
 	}
 }
